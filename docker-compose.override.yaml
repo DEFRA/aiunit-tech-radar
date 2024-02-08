@@ -8,8 +8,8 @@ services:
     image: aiunit-tech-radar-development
     container_name: aiunit-tech-radar-development
     ports:
-      - "3000:3000"
-      - "9229:9229"
+      - "${AI_UNIT_TECHRADAR_PORT:-3000}:3000"
+      - "${AI_UNIT_TECHRADAR_DEBUG_PORT:-9229}:9229"
     volumes:
       - ./app:/home/node/app
       - ./package.json:/home/node/package.json
