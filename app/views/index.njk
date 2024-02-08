@@ -1,8 +1,18 @@
 {% extends '_layout.njk' %}
 
 {% block content %}
-<div class="container py-4 px-3 mx-auto">
+<div class="container">
   <h1>AI Unit - Techradar</h1>
-  <button class="btn btn-primary">Primary button</button>
+  <svg id="radar"></svg>
 </div>
+{% endblock %}
+
+{% block bodyEnd %}
+<script src="https://d3js.org/d3.v4.min.js"></script>
+<script src="http://zalando.github.io/tech-radar/release/radar-0.8.js"></script>
+<script>
+  const test = JSON.parse('{{ radar | safe }}')
+  console.log(test)
+  radar_visualization(test)
+</script>
 {% endblock %}

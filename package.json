@@ -23,6 +23,7 @@
     "@hapi/vision": "^7.0.3",
     "applicationinsights": "2.9.1",
     "bootstrap": "^5.3.2",
+    "d3": "^7.8.5",
     "joi": "^17.12.1",
     "nunjucks": "^3.2.4"
   },
