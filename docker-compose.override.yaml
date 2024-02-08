@@ -8,8 +8,18 @@ services:
     image: aiunit-tech-radar-development
     container_name: aiunit-tech-radar-development
     ports:
-      - "3000:3000"
-      - "9229:9229"
+      - "${AI_UNIT_TECHRADAR_PORT:-3000}:3000"
+      - "${AI_UNIT_TECHRADAR_DEBUG_PORT:-9229}:9229"
     volumes:
       - ./app:/home/node/app
       - ./package.json:/home/node/package.json
+    environment:
+      AZURE_STORAGE_CONNECTION_STRING: "${AI_UNIT_TECH_RADAR_AZURE_STORAGE_CONNECTION_STRING:-UseDevelopmentStorage=true;}"
+      AZURE_AI_UNIT_TECH_RADAR_STORAGE_ACCOUNT: "${AI_UNIT_TECH_RADAR_AZURE_STORAGE_ACCOUNT:-devstoreaccount1}"
+  
+  aiunit-tech-radar-azurite:
+    image: mcr.microsoft.com/azure-storage/azurite
+    container_name: aiunit-tech-radar-azurite
+    ports:
+      - "${AI_UNIT_TECH_RADAR_BLOB_PORT:-10000}:10000"
+      - "${AI_UNIT_TECH_RADAR_TABLE_PORT:-10002}:10002"
