@@ -16,6 +16,8 @@ const createServer = async () => {
     }
   })
 
+  await server.register(require('@hapi/inert'))
+  await server.register(require('./plugins/views'))
   await server.register(require('./plugins/router'))
 
   return server
