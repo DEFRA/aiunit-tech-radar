@@ -1,0 +1,8 @@
+{{- include "ffc-helm-library.deployment" (list . "aiunit-tech-radar.deployment") -}}
+{{- define "aiunit-tech-radar.deployment" -}}
+spec:
+  template:
+    spec:
+      containers:
+      - {{ include "ffc-helm-library.container" (list . "aiunit-tech-radar.container") }}
+{{- end -}}

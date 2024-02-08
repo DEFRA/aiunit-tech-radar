@@ -1,10 +1,10 @@
 services:
-  ffc-template-node:
+  aiunit-tech-radar:
     build:
       context: .
       target: production
-    image: ffc-template-node
-    container_name: ffc-template-node
+    image: aiunit-tech-radar
+    container_name: aiunit-tech-radar
     environment:
-      APPINSIGHTS_CLOUDROLE: ffc-template-node-local
+      APPINSIGHTS_CLOUDROLE: aiunit-tech-radar-local
       APPINSIGHTS_CONNECTIONSTRING: ${APPINSIGHTS_CONNECTIONSTRING}

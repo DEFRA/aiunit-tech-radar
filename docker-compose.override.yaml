@@ -2,11 +2,11 @@
 # to provide dependencies and expose ports for local testing
 
 services:
-  ffc-template-node:
+  aiunit-tech-radar:
     build:
       target: development
-    image: ffc-template-node-development
-    container_name: ffc-template-node-development
+    image: aiunit-tech-radar-development
+    container_name: aiunit-tech-radar-development
     ports:
       - "3000:3000"
       - "9229:9229"

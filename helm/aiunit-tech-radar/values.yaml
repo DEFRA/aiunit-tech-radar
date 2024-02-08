@@ -1,9 +1,9 @@
 environment: production
 environmentCode:
-name: ffc-template-node
-namespace: ffc-demo
-workstream: ffc-demo
-image: ffc-template-node
+name: aiunit-tech-radar
+namespace: aiunit-tech
+workstream: aiunit-tech
+image: aiunit-tech-radar
 
 labels:
   component: service
@@ -12,10 +12,10 @@ appInsights:
   connectionString:
 
 containerConfigMap:
-  name: ffc-template-node-config-map
+  name: aiunit-tech-radar-config-map
 
 containerSecret:
-  name: ffc-template-node-container-secret
+  name: aiunit-tech-radar-container-secret
   type: Opaque
 
 deployment: {}

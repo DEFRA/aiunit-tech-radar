@@ -2,11 +2,11 @@
 # that test output is saved to the host
 
 services:
-  ffc-template-node:
+  aiunit-tech-radar:
     build:
       target: development
-    image: ffc-template-node-development
-    container_name: ffc-template-node-test
+    image: aiunit-tech-radar-development
+    container_name: aiunit-tech-radar-test
     command: npm run test
     volumes:
       - ./app:/home/node/app
