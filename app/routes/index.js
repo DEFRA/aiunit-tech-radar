@@ -1,14 +1,19 @@
+const { processRadarEntity } = require('../lib/radar')
 const RadarModel = require('../models/radar')
+const { getLatestRadar } = require('../storage/repos/radar-entries')
 
 module.exports = {
   method: 'GET',
   path: '/',
   options: {
     handler: async (_, h) => {
-      const model = new RadarModel()
-      const radar = JSON.stringify(model.radar)
+      const latest = await getLatestRadar()
 
-      return h.view('index', { radar })
+      const entries = processRadarEntity(latest)
+
+      const model = new RadarModel(entries)
+
+      return h.view('index', { radar: JSON.stringify(model.radar) })
     }
   }
 }

@@ -26,6 +26,9 @@ container:
   limitMemory: 100Mi
   limitCpu: 100m
   port: 3000
+  azureConnectionString: not-a-real-connection-string
+  aiUnitTechRadarStorageAccount: not-a-real-storage-account
+  azureStorageUseConnectionString: true
 
 livenessProbe:
   path: /healthz
@@ -42,3 +45,14 @@ readinessProbe:
   periodSeconds: 10
   failureThreshold: 3
   timeoutSeconds: 5
+
+aadPodIdentity: true
+
+azureIdentity:
+  clientID: not-a-real-clientID
+  resourceID: not-a-real-resourceID
+
+ingress:
+  class: nginx
+  endpoint: dummy-endpoint
+  server: example.com

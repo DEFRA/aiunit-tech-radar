@@ -1,7 +1,8 @@
 const Joi = require('joi')
 
 const schema = Joi.object({
-  port: Joi.number().default(3000)
+  port: Joi.number().default(3000),
+  serviceName: Joi.string().default('AI Unit - Tech Radar')
 })
 
 const config = {

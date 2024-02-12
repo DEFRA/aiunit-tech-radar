@@ -1,0 +1,5 @@
+{{- if .Values.aadPodIdentity }}
+{{- include "ffc-helm-library.azure-identity" (list . "aiunit-tech-radar.azure-identity") -}}
+{{- end }}
+{{- define "aiunit-tech-radar.azure-identity" -}}
+{{- end -}}

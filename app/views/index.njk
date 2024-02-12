@@ -1,8 +1,8 @@
 {% extends '_layout.njk' %}
 
 {% block content %}
-<div class="container">
-  <h1>AI Unit - Techradar</h1>
+<div style="display: none;" id="radarData">{{ radar }}</div>
+<div class="container-fluid">
   <svg id="radar"></svg>
 </div>
 {% endblock %}
@@ -11,8 +11,10 @@
 <script src="https://d3js.org/d3.v4.min.js"></script>
 <script src="http://zalando.github.io/tech-radar/release/radar-0.8.js"></script>
 <script>
-  const test = JSON.parse('{{ radar | safe }}')
-  console.log(test)
-  radar_visualization(test)
+  const obj = JSON.parse(document.getElementById('radarData').innerText)
+
+  console.log(obj)
+
+  radar_visualization(obj)
 </script>
 {% endblock %}

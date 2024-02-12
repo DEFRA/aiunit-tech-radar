@@ -1,0 +1,37 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.com/ai-techradar.schema.json",
+  "title": "AI Unit Tech Radar",
+  "description": "Tech Radar for AI Unit based on ThoughtWorks Tech Radar",
+  "type": "object",
+  "properties": {
+    "entries": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "ring": {
+            "type": "string",
+            "enum": ["ADOPT", "TRIAL", "ASSESS", "HOLD"]
+          },
+          "quadrant": {
+            "type": "string",
+            "enum": ["Techniques", "Tools", "Platforms", "Languages and Frameworks"]
+          },
+          "description": {
+            "type": "string"
+          },
+          "url": {
+            "type": "string",
+            "format": "uri"
+          }
+        },
+        "required": ["name", "ring", "quadrant"]
+      }
+    }
+  },
+  "required": ["entries"]
+}
