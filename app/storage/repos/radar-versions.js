@@ -4,7 +4,7 @@ const { odata } = require('@azure/data-tables')
 
 const partitionKey = 'AI_UNIT'
 
-let client = getTableClient(config.radarVersionTable)
+const client = getTableClient(config.radarVersionTable)
 
 const addVersion = async (year, month) => {
   const entity = {

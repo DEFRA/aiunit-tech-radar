@@ -4,7 +4,7 @@ const { getTableClient } = require('../table')
 const { odata } = require('@azure/data-tables')
 const { addRadarVersion } = require('./radar-versions')
 
-let client = getTableClient(config.radarTable)
+const client = getTableClient(config.radarTable)
 
 const enrichEntry = (entry, partitionKey, rowKey) => ({
   partitionKey,

@@ -1,7 +1,7 @@
 const { quadrants, rings } = require('../constants/radar')
 
 class RadarModel {
-  constructor(entries = []) {
+  constructor (entries = []) {
     this.radar = {
       svg_id: 'radar',
       width: 1450,

@@ -1,6 +1,6 @@
 {
   "name": "aiunit-tech-radar",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Techradar to track AI technology assessments",
   "homepage": "https://github.com/DEFRA/aiunit-tech-radar",
   "main": "app/index.js",
@@ -54,6 +54,10 @@
       "jest",
       "beforeAll",
       "afterAll"
+    ],
+    "ignore": [
+      "**/dist/**",
+      "**/frontend/**"
     ]
   },
   "nodemonConfig": {
