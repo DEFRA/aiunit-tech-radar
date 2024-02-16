@@ -12,7 +12,6 @@ const addVersion = async (year, month) => {
     rowKey: `${year}_${month}`
   }
 
-  // check if entity already exists
   const exists = await client.getEntity(entity.partitionKey, entity.rowKey)
 
   if (!exists) {
@@ -43,7 +42,7 @@ const getVersions = async () => {
   return versions
 }
 
-const getLatestRadar = async () => {
+const getLatestVersion = async () => {
   const results = client.listEntities({
     queryOptions: {
       filter: odata`PartitionKey eq ${partitionKey}`
@@ -76,5 +75,5 @@ const getLatestRadar = async () => {
 module.exports = {
   addVersion,
   getVersions,
-  getLatestRadar
+  getLatestVersion
 }

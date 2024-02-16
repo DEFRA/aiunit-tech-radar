@@ -1,4 +1,5 @@
 const config = require('../../config/storage/table')
+const { v4: uuid } = require('uuid')
 const { getTableClient } = require('../table')
 const { odata } = require('@azure/data-tables')
 const { addRadarVersion } = require('./radar-versions')
@@ -7,7 +8,7 @@ let client = getTableClient(config.radarTable)
 
 const enrichEntry = (entry, partitionKey, rowKey) => ({
   partitionKey,
-  rowKey,
+  rowKey: uuid(),
   ...entry
 })
 
@@ -70,13 +71,7 @@ const getRadarRelease = async (year, month) => {
 }
 
 const addRadarEntry = async (entry) => {
-  const entity = enrichEntry(entry, 'AI_UNIT', entry.name)
-
-  const exists = await client.getEntity(entity.partitionKey, entity.rowKey)
-
-  if (exists) {
-    throw new Error(`Entry ${entity.partitionKey}/${entity.rowKey} already exists`)
-  }
+  const entity = enrichEntry(entry, 'AI_UNIT')
 
   return client.createEntity(entity)
 }
