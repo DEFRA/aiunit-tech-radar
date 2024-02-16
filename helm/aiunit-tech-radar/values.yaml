@@ -27,7 +27,7 @@ container:
   limitCpu: 100m
   port: 3000
   azureConnectionString: not-a-real-connection-string
-  aiUnitTechRadarStorageAccount: not-a-real-storage-account
+  azureStorageAccount: not-a-real-storage-account
   azureStorageUseConnectionString: true
 
 livenessProbe:
