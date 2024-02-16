@@ -1,5 +1,5 @@
 {{- if .Values.aadPodIdentity }}
-{{- include "ffc-helm-library.azure-identity-binding" (list . "aiunit-tech-radar.azure-identity-binding") -}}
+{{- include "ffc-helm-library.azure-identity-binding" (list . "core-ai-techradar.azure-identity-binding") -}}
 {{- end }}
-{{- define "aiunit-tech-radar.azure-identity-binding" -}}
+{{- define "core-ai-techradar.azure-identity-binding" -}}
 {{- end -}}

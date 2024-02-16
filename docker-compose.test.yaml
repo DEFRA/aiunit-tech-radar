@@ -2,11 +2,11 @@
 # that test output is saved to the host
 
 services:
-  aiunit-tech-radar:
+  core-ai-techradar:
     build:
       target: development
-    image: aiunit-tech-radar-development
-    container_name: aiunit-tech-radar-test
+    image: core-ai-techradar-development
+    container_name: core-ai-techradar-test
     command: npm run test
     volumes:
       - ./app:/home/node/app
