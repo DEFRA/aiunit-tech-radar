@@ -89,7 +89,7 @@ const createRadarRelease = async () => {
   const iter = queryEntriesByPartition('AI_UNIT')
 
   for await (const entity of iter) {
-    const entry = enrichEntry(entity, partitionKey, entity.rowKey)
+    const entry = enrichEntry(entity, partitionKey)
     await client.createEntity(entry)
   }
 
