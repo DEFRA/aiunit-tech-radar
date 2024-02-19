@@ -9,11 +9,13 @@ const processRadarEntity = (radar = []) => {
 
     if (quadrant === undefined) {
       console.warn(`Unknown quadrant: ${entry.quadrant}`)
-      continue
     }
 
     if (ring === undefined) {
       console.warn(`Unknown ring: ${entry.ring}`)
+    }
+
+    if (quadrant === undefined || ring === undefined) {
       continue
     }
 

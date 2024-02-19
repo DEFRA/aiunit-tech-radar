@@ -6,7 +6,7 @@ const { addRadarVersion } = require('./radar-versions')
 
 const client = getTableClient(config.radarTable)
 
-const enrichEntry = (entry, partitionKey, rowKey) => ({
+const enrichEntry = (entry, partitionKey) => ({
   partitionKey,
   rowKey: uuid(),
   ...entry
