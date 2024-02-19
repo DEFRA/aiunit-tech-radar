@@ -12,19 +12,8 @@ class RadarModel {
         grid: '#bbb',
         inactive: '#ddd'
       },
-      title: 'Tech Radar',
-      quadrants: [
-        { name: quadrants.INFRASTRUCTURE },
-        { name: quadrants.TOOLS },
-        { name: quadrants.LANGUAGES },
-        { name: quadrants.TECHNIQUES }
-      ],
-      rings: [
-        { name: rings.ADOPT, color: '#5ba300' },
-        { name: rings.TRIAL, color: '#009eb0' },
-        { name: rings.ASSESS, color: '#c7ba00' },
-        { name: rings.HOLD, color: '#e09b96' }
-      ],
+      quadrants: quadrants.items,
+      rings: rings.items,
       print_layout: true,
       links_in_new_tabs: true,
       entries

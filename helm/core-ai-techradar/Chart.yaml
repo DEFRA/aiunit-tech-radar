@@ -1,6 +1,6 @@
 apiVersion: v2
 description: Techradar to track AI technology assessments
-name: aiunit-tech-radar
+name: core-ai-techradar
 # this version is automatically updated in the build pipeline
 version: 1.0.0
 dependencies:

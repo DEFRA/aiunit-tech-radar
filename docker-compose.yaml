@@ -1,12 +1,13 @@
 services:
-  aiunit-tech-radar:
+  core-ai-techradar:
     build:
       context: .
       target: production
-    image: aiunit-tech-radar
-    container_name: aiunit-tech-radar
+    image: core-ai-techradar
+    container_name: core-ai-techradar
     environment:
-      APPINSIGHTS_CLOUDROLE: aiunit-tech-radar-local
+      APPINSIGHTS_CLOUDROLE: core-ai-techradar-local
       APPINSIGHTS_CONNECTIONSTRING: ${APPINSIGHTS_CONNECTIONSTRING}
-      AZURE_STORAGE_CONNECTION_STRING: "test"
+      AZURE_STORAGE_CONNECTION_STRING: "UseDevelopmentStorage=true;"
+      AZURE_STORAGE_USE_CONNECTION_STRING: "true"
       AZURE_AI_UNIT_TECH_RADAR_STORAGE_ACCOUNT: "test"

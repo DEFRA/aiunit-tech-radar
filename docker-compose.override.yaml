@@ -2,11 +2,11 @@
 # to provide dependencies and expose ports for local testing
 
 services:
-  aiunit-tech-radar:
+  core-ai-techradar:
     build:
       target: development
-    image: aiunit-tech-radar-development
-    container_name: aiunit-tech-radar-development
+    image: core-ai-techradar-development
+    container_name: core-ai-techradar-development
     ports:
       - "${AI_UNIT_TECHRADAR_PORT:-3000}:3000"
       - "${AI_UNIT_TECHRADAR_DEBUG_PORT:-9229}:9229"
@@ -14,12 +14,13 @@ services:
       - ./app:/home/node/app
       - ./package.json:/home/node/package.json
     environment:
+      AZURE_STORAGE_USE_CONNECTION_STRING: "true"
       AZURE_STORAGE_CONNECTION_STRING: "${AI_UNIT_TECH_RADAR_AZURE_STORAGE_CONNECTION_STRING:-UseDevelopmentStorage=true;}"
       AZURE_AI_UNIT_TECH_RADAR_STORAGE_ACCOUNT: "${AI_UNIT_TECH_RADAR_AZURE_STORAGE_ACCOUNT:-devstoreaccount1}"
   
-  aiunit-tech-radar-azurite:
+  core-ai-techradar-azurite:
     image: mcr.microsoft.com/azure-storage/azurite
-    container_name: aiunit-tech-radar-azurite
+    container_name: core-ai-techradar-azurite
     ports:
       - "${AI_UNIT_TECH_RADAR_BLOB_PORT:-10000}:10000"
       - "${AI_UNIT_TECH_RADAR_TABLE_PORT:-10002}:10002"

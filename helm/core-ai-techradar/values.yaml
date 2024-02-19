@@ -1,9 +1,9 @@
 environment: production
 environmentCode:
-name: aiunit-tech-radar
-namespace: aiunit-tech
-workstream: aiunit-tech
-image: aiunit-tech-radar
+name: core-ai-techradar
+namespace: core-ai
+workstream: core-ai
+image: core-ai-techradar
 
 labels:
   component: service
@@ -12,10 +12,10 @@ appInsights:
   connectionString:
 
 containerConfigMap:
-  name: aiunit-tech-radar-config-map
+  name: core-ai-techradar-config-map
 
 containerSecret:
-  name: aiunit-tech-radar-container-secret
+  name: core-ai-techradar-container-secret
   type: Opaque
 
 deployment: {}
@@ -26,6 +26,9 @@ container:
   limitMemory: 100Mi
   limitCpu: 100m
   port: 3000
+  azureConnectionString: not-a-real-connection-string
+  azureStorageAccount: not-a-real-storage-account
+  azureStorageUseConnectionString: true
 
 livenessProbe:
   path: /healthz
@@ -42,3 +45,14 @@ readinessProbe:
   periodSeconds: 10
   failureThreshold: 3
   timeoutSeconds: 5
+
+aadPodIdentity: true
+
+azureIdentity:
+  clientID: not-a-real-clientID
+  resourceID: not-a-real-resourceID
+
+ingress:
+  class: nginx
+  endpoint: dummy-endpoint
+  server: example.com

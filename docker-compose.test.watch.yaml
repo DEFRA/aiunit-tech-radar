@@ -1,5 +1,5 @@
 services:
-  aiunit-tech-radar:
+  core-ai-techradar:
     command: >
       sh -c "npm run test:watch"
     volumes:

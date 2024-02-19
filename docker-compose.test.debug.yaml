@@ -1,5 +1,5 @@
 services:
-  aiunit-tech-radar:
+  core-ai-techradar:
     command: npm run test:debug
     ports:
       - "9229:9229"

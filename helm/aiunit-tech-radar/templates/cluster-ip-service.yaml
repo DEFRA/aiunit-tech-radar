@@ -1,3 +1,0 @@
-{{- include "ffc-helm-library.cluster-ip-service" (list . "aiunit-tech-radar.cluster-ip-service") -}}
-{{- define "aiunit-tech-radar.cluster-ip-service" -}}
-{{- end -}}
