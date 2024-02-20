@@ -1,0 +1,10 @@
+{% extends '_layout.njk' %}
+
+{% block content %}
+<div class="container-fluid">
+  <form action="/create-release" method="post">
+    <div class="form-group w-25 p-3">
+      <input type="submit" class="btn btn-primary mt-3" value="Create release {{ year }}-{{ month }}">
+    </div>
+</div>
+{% endblock %}

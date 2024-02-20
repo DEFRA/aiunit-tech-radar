@@ -2,7 +2,9 @@ const routes = [].concat(
   require('../routes/healthy'),
   require('../routes/healthz'),
   require('../routes/index'),
-  require('../routes/static')
+  require('../routes/static'),
+  require('../routes/create-release'),
+  require('../routes/entry/add')
 )
 
 module.exports = {
