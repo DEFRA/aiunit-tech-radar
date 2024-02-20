@@ -6,16 +6,29 @@ const partitionKey = 'AI_UNIT'
 
 const client = getTableClient(config.radarVersionTable)
 
+const queryVersionsByPartition = (partition, additionalOptions) => {
+  const results = client.listEntities({
+    queryOptions: {
+      filter: odata`PartitionKey eq ${partition}`,
+      ...additionalOptions
+    }
+  })
+
+  return results
+}
+
 const addVersion = async (year, month) => {
   const entity = {
     partitionKey,
     rowKey: `${year}_${month}`
   }
 
-  const exists = await client.getEntity(entity.partitionKey, entity.rowKey)
+  const iter = queryVersionsByPartition(partitionKey)
 
-  if (!exists) {
-    await client.createEntity(entity)
+  const { value } = await iter[Symbol.asyncIterator]().next()
+
+  if (!value) {
+    return client.createEntity(entity)
   }
 
   console.warn(`Version (${entity.rowKey}) already exists`)

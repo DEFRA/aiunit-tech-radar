@@ -1,15 +1,14 @@
 const config = require('../../config/storage/table')
-const { v4: uuid } = require('uuid')
 const { getTableClient } = require('../table')
 const { odata } = require('@azure/data-tables')
-const { addRadarVersion } = require('./radar-versions')
+const { addVersion } = require('./radar-versions')
 
 const client = getTableClient(config.radarTable)
 
 const enrichEntry = (entry, partitionKey) => ({
+  ...entry,
   partitionKey,
-  rowKey: uuid(),
-  ...entry
+  rowKey: encodeURIComponent(entry.name)
 })
 
 const calculatePartitionKey = (year, month) => {
@@ -46,8 +45,10 @@ const deleteEntriesByPartition = async (partition) => {
   }
 }
 
-const getLatestRadar = async () => {
-  const iter = queryEntriesByPartition('AI_UNIT')
+const getRadar = async (year, month) => {
+  const partition = (year && month) ? calculatePartitionKey(year, month) : 'AI_UNIT'
+
+  const iter = queryEntriesByPartition(partition)
 
   const entries = []
 
@@ -70,10 +71,33 @@ const getRadarRelease = async (year, month) => {
   return entriesDto(entries)
 }
 
-const addRadarEntry = async (entry) => {
+const checkIfEntryExists = async (entry) => {
+  const iter = queryEntriesByPartition('AI_UNIT', {
+    filter: odata`RowKey eq ${encodeURIComponent(entry.name)}`
+  })
+
+  const { value } = await iter[Symbol.asyncIterator]().next()
+
+  return value !== undefined
+}
+
+const addRadarEntry = async (name, quadrant, ring, description) => {
+  const entry = {
+    name,
+    quadrant,
+    ring,
+    description
+  }
+
   const entity = enrichEntry(entry, 'AI_UNIT')
 
-  return client.createEntity(entity)
+  const exists = await checkIfEntryExists(entity)
+
+  if (!exists) {
+    return client.createEntity(entity)
+  }
+
+  return client.updateEntity(entity)
 }
 
 const createRadarRelease = async () => {
@@ -93,11 +117,13 @@ const createRadarRelease = async () => {
     await client.createEntity(entry)
   }
 
-  await addRadarVersion(year, month)
+  await addVersion(year, month)
+
+  return { year, month }
 }
 
 module.exports = {
-  getLatestRadar,
+  getRadar,
   getRadarRelease,
   addRadarEntry,
   createRadarRelease
