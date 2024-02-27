@@ -1,0 +1,9 @@
+storageAccounts:
+  - name: 'core-ai-techradar'
+    tables: 
+      - name: 'radars'
+        roleAssignments:
+          - roleName: 'TableDataContributor'
+      - name: 'radarversions'
+        roleAssignments:
+          - roleName: 'TableDataContributor'
