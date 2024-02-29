@@ -4,6 +4,6 @@
   value: "3000"
 - key: APPINSIGHTS_CLOUDROLE
   value: "{{serviceName}}"  
-- key: container.azureStorageAccount
-  value: "core-ai-techradar"
+- key: AZURE_AI_UNIT_TECH_RADAR_STORAGE_ACCOUNT
+  value: "coreaitechradar"
   
