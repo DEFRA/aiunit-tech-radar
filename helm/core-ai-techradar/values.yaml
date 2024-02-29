@@ -19,9 +19,6 @@ container:
   limitMemory: 100Mi
   limitCpu: 100m
   port: 3000
-  azureConnectionString: not-a-real-connection-string
-  azureStorageAccount: not-a-real-storage-account
-  azureStorageUseConnectionString: false
 
 livenessProbe:
   path: /healthz
