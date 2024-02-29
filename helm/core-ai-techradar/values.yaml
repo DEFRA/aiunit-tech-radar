@@ -1,8 +1,8 @@
 environment: development
 environmentCode:
 name: core-ai-techradar
-namespace: core-ai
-workstream: core-ai
+namespace: coreai-mcu
+workstream: coreai-mcu
 image: core-ai-techradar
 
 labels:
