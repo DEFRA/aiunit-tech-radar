@@ -1,4 +1,4 @@
-{{- include "adp-helm-library.azure-config-service-map" . -}}
+{{- include "adp-helm-library.container-config-map" (list . "core-ai-techradar.container-config-map") -}}
 {{- define "core-ai-techradar.container-config-map" -}}
 data:
   NODE_ENV: {{ quote .Values.environment }}
