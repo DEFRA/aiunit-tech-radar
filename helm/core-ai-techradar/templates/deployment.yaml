@@ -1,8 +1,8 @@
-{{- include "ffc-helm-library.deployment" (list . "core-ai-techradar.deployment") -}}
+{{- include "adp-helm-library.deployment" (list . "core-ai-techradar.deployment") -}}
 {{- define "core-ai-techradar.deployment" -}}
 spec:
   template:
     spec:
       containers:
-      - {{ include "ffc-helm-library.container" (list . "core-ai-techradar.container") }}
+      - {{ include "adp-helm-library.container" (list . "core-ai-techradar.container") }}
 {{- end -}}

@@ -1,4 +1,4 @@
-environment: production
+environment: development
 environmentCode:
 name: core-ai-techradar
 namespace: core-ai
@@ -6,17 +6,10 @@ workstream: core-ai
 image: core-ai-techradar
 
 labels:
-  component: service
+  component: web
 
 appInsights:
   connectionString:
-
-containerConfigMap:
-  name: core-ai-techradar-config-map
-
-containerSecret:
-  name: core-ai-techradar-container-secret
-  type: Opaque
 
 deployment: {}
 
@@ -46,13 +39,11 @@ readinessProbe:
   failureThreshold: 3
   timeoutSeconds: 5
 
-aadPodIdentity: true
-
-azureIdentity:
-  clientID: not-a-real-clientID
-  resourceID: not-a-real-resourceID
+service:
+  port: 80
+  type: ClusterIP
 
 ingress:
   class: nginx
-  endpoint: dummy-endpoint
+  endpoint: core-ai-techradar
   server: example.com
