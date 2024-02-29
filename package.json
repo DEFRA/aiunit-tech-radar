@@ -1,6 +1,6 @@
 {
   "name": "core-ai-techradar",
-  "version": "0.4.1",
+  "version": "0.4.2",
   "description": "Techradar to track AI technology assessments",
   "homepage": "https://github.com/DEFRA/aiunit-tech-radar",
   "main": "app/index.js",
