@@ -1,5 +1,5 @@
 storageAccounts:
-  - name: 'core-ai-techradar'
+  - name: 'coreaitechradar'
     tables: 
       - name: 'radars'
         roleAssignments:
