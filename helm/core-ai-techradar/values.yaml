@@ -44,3 +44,9 @@ ingress:
   class: nginx
   endpoint: core-ai-techradar
   server: example.com
+
+aadWorkloadIdentity: true
+
+serviceAccount:
+  name: coreai-mcu
+  roleArn: true
