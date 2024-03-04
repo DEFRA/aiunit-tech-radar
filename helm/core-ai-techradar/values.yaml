@@ -14,6 +14,7 @@ appInsights:
 deployment: {}
 
 container:
+  memCpuTier: CUSTOM
   requestMemory: 100Mi
   requestCpu: 100m
   limitMemory: 100Mi
@@ -44,9 +45,3 @@ ingress:
   class: nginx
   endpoint: core-ai-techradar
   server: example.com
-
-aadWorkloadIdentity: true
-
-serviceAccount:
-  name: coreai-mcu
-  roleArn: true
