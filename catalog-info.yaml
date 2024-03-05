@@ -1,0 +1,32 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: "core-ai-techradar"
+  description: |
+    Core AI project created from template to support rapid delivery of microservices for FCP Platform. 
+    It contains the configuration needed to deploy a simple Hapi Node server to the Azure Kubernetes Platform.
+  annotations:
+    github.com/project-slug: DEFRA/core-ai-techradar
+    dev.azure.com/project: DEFRA-AI
+    dev.azure.com/build-definition: core-ai-techradar
+    sonarqube.org/project-key: core-ai-techradar
+    grafana/dashboard-selector: "folderTitle == 'Managed Prometheus'"
+    backstage.io/kubernetes-id: core-ai-techradar
+  tags:
+    - node
+    - private
+    - back-end
+    - graphql
+  links:
+    - url: https://github.com/DEFRA/core-ai-techradar
+      title: View repository
+      icon: github
+    - url: https://sonarcloud.io/project/overview?id=core-ai-techradar
+      title: SonarCloud Analysis
+    - url: https://snyk.io/test/github/DEFRA/core-ai-techradar
+      title: Snyk Analysis
+spec:
+  type: backend
+  lifecycle: beta
+  owner: "group:default/mcu-ai"
+  system: "system:default/core-mcu-ai-system"

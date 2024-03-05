@@ -9,7 +9,7 @@ const getTableClient = (table) => {
     tableClient = TableClient.fromConnectionString(config.connectionString, table, { allowInsecureConnection: true })
   } else {
     console.log('Using DefaultAzureCredential for Table Client')
-    tableClient = new TableClient(`https://${config.storageAccount}.table.core.windows.net`, table, new DefaultAzureCredential())
+    tableClient = new TableClient(`https://${config.storageAccount}.table.core.windows.net`, table, new DefaultAzureCredential({ managedIdentityClientId: process.env.AZURE_CLIENT_ID }))
   }
 
   return tableClient

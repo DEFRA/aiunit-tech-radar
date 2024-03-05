@@ -1,34 +1,25 @@
-environment: production
+environment: development
 environmentCode:
 name: core-ai-techradar
-namespace: core-ai
-workstream: core-ai
+namespace: coreai-mcu
+workstream: coreai-mcu
 image: core-ai-techradar
 
 labels:
-  component: service
+  component: web
 
 appInsights:
   connectionString:
 
-containerConfigMap:
-  name: core-ai-techradar-config-map
-
-containerSecret:
-  name: core-ai-techradar-container-secret
-  type: Opaque
-
 deployment: {}
 
 container:
+  memCpuTier: CUSTOM
   requestMemory: 100Mi
   requestCpu: 100m
   limitMemory: 100Mi
   limitCpu: 100m
   port: 3000
-  azureConnectionString: not-a-real-connection-string
-  azureStorageAccount: not-a-real-storage-account
-  azureStorageUseConnectionString: true
 
 livenessProbe:
   path: /healthz
@@ -46,13 +37,11 @@ readinessProbe:
   failureThreshold: 3
   timeoutSeconds: 5
 
-aadPodIdentity: true
-
-azureIdentity:
-  clientID: not-a-real-clientID
-  resourceID: not-a-real-resourceID
+service:
+  port: 80
+  type: ClusterIP
 
 ingress:
   class: nginx
-  endpoint: dummy-endpoint
+  endpoint: core-ai-techradar
   server: example.com

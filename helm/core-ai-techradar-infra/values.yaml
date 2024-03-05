@@ -1,0 +1,9 @@
+storageAccounts:
+  - name: 'tchradar1'
+    tables: 
+      - name: 'radars'
+        roleAssignments:
+          - roleName: 'TableDataContributor'
+      - name: 'radarversions'
+        roleAssignments:
+          - roleName: 'TableDataContributor'
