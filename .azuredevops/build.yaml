@@ -37,7 +37,7 @@ resources:
 extends:
   template: /pipelines/common-app-build.yaml@DEFRA-ADPPipelineCommon
   parameters:
-    projectName: "core-ai-techradar"
+    teamName: "crai-mcu"
     serviceName: "core-ai-techradar"
     deployFromFeature: ${{ parameters.deployFromFeature }}
     appBuildConfig:
@@ -54,5 +54,4 @@ extends:
       # TO BE ADDED IF THERE ARE ANY KEYVAULT REFERENCES IN APP CONFIG
       variableGroups: 
         - core-ai-techradar-<environment>
-      variables:  # FILTER FOR SECRETS IN THE VARIABLE GROUP
-        - core-ai-techradar-APPINSIGHTS-CONNECTIONSTRING
+
