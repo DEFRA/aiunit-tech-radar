@@ -54,5 +54,4 @@ extends:
       # TO BE ADDED IF THERE ARE ANY KEYVAULT REFERENCES IN APP CONFIG
       variableGroups: 
         - core-ai-techradar-<environment>
-      variables:  # FILTER FOR SECRETS IN THE VARIABLE GROUP
-        - core-ai-techradar-APPINSIGHTS-CONNECTIONSTRING
+
