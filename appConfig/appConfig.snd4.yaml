@@ -1,0 +1,5 @@
+- key: APPINSIGHTS_CONNECTIONSTRING
+  value: "{{servicename}}-APPINSIGHTS-CONNECTIONSTRING"
+  type: "keyvault"
+- key: AZURE_AI_UNIT_TECH_RADAR_STORAGE_ACCOUNT
+  value: "sndadpinfst4401tchradar1"  
